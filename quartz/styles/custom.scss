@@ -1,3 +1,11 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+/* ページタイトル（サイト名ロゴ）のみ Linux Libertine Capitals を適用 */
+.page-title a,
+h1.page-title {
+  font-family: "Linux Libertine Capitals", "Linux Libertine", "Libertinus Serif", "Georgia", serif !important;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
