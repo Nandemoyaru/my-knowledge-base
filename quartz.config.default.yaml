@@ -87,6 +87,9 @@ plugins:
     options:
       renderEngine: katex
     order: 80
+  - source: "@quartz-community/mermaid"
+    enabled: true
+    order: 81
   - source: "@quartz-community/citations"
     enabled: false
     order: 85
