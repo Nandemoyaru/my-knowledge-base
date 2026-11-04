@@ -7,21 +7,30 @@ date: 2026-11-03
 親カテゴリ: [[clinical-flows/A_心血管/index|A章 心血管]]
 
 ## 診断アルゴリズム
-[間欠性跛行、下肢痛、冷感、脈拍減弱]
-│
-└─\UTF{25BA} 足関節上腕血圧比 (ABI) 測定
-│
-├─\UTF{25BA} ABI \UTF{2264}0.90 ──\UTF{25BA} 「LEAD確定」
-│      (0.71-0.90: 軽症, 0.41-0.70: 中等症, \UTF{2264}0.40: 重症)
-│
-├─\UTF{25BA} ABI 0.91〜1.40 (正常範囲だが症状が典型的)
-│      └─\UTF{25BA} トレッドミル運動負荷後 ABI
-│             ├─\UTF{25BA} 20%以上低下 または \UTF{2264}0.90 ──\UTF{25BA} LEAD確定
-│             └─\UTF{25BA} 変化なし ──\UTF{25BA} 否定（神経性跛行等を精査）
-│
-└─\UTF{25BA} ABI >1.40 (高度血管石灰化・メンケベルグ硬化)
-└─\UTF{25BA} 足趾上腕血圧比 (TBI) 測定 ＋ 下肢動脈エコー
-└─\UTF{25BA} TBI <0.70 ──\UTF{25BA} LEAD確定
+```mermaid
+flowchart TD
+    Start([間欠性跛行、下肢痛、冷感、脈拍減弱]) --> ABI["足関節上腕血圧比（ABI）測定"]
+
+    %% 分岐
+    ABI --> Low["ABI &le; 0.90"]
+    ABI --> Norm["ABI 0.91〜1.40<br>（正常範囲だが症状が典型的）"]
+    ABI --> High["ABI &gt; 1.40<br>（高度血管石灰化・メンケベルグ硬化）"]
+
+    %% ABI <= 0.90
+    Low --> Low_Diag["【LEAD確定】<br>・0.71〜0.90：軽症<br>・0.41〜0.70：中等症<br>・&le; 0.40：重症"]
+
+    %% ABI 0.91〜1.40
+    Norm --> Treadmill["トレッドミル運動負荷後 ABI"]
+    Treadmill --> Tread_Drop["20%以上低下 または &le; 0.90"]
+    Tread_Drop --> Tread_Drop_Diag["【LEAD確定】"]
+    Treadmill --> Tread_NoDrop["変化なし"]
+    Tread_NoDrop --> Tread_NoDrop_Diag["否定<br>（神経性跛行等を精査）"]
+
+    %% ABI > 1.40
+    High --> TBI_Check["足趾上腕血圧比（TBI）測定<br>＋ 下肢動脈エコー"]
+    TBI_Check --> TBI_Low["TBI &lt; 0.70"]
+    TBI_Low --> TBI_Diag["【LEAD確定】"]
+```
 
 
 > [!NOTE]- 血管性間欠性跛行 vs 神経性間欠性跛行（脊柱管狭窄症）の鑑別
