@@ -28,3 +28,27 @@ date: 2026-11-03
 ## 治療プロトコル
 
 無症候性（Smoldering WM）は無治療経過観察[cite: 724, 726]。血球減少、臓器腫大、過粘稠症状を伴う症候性WMで治療開始[cite: 725, 726]。
+```mermaid
+flowchart TD
+    Start([症候性 Waldenström マクログロブリン血症]) --> Hyperviscosity["過粘稠症状あり"]
+    Start --> StandardTx["標準薬物療法"]
+
+    %% 過粘稠症状
+    Hyperviscosity --> TPE["まず「緊急血漿交換」でIgMを減量"]
+
+    %% 標準薬物療法
+    StandardTx --> ChemoImmuno["第一選択化学免疫療法"]
+    StandardTx --> TargetedTx["経口分子標的薬<br>（未治療および再発・難治例に極めて有効）"]
+
+    %% 化学免疫療法の内訳
+    ChemoImmuno --> BR["【BR療法】<br>ベンダムスチン ＋ リツキシマブ"]
+    ChemoImmuno --> DRC["【DRC療法】<br>デキサメタゾン ＋ リツキシマブ ＋ シクロホスファミド"]
+
+    %% 分子標的薬の内訳
+    TargetedTx --> BTKi["【ブルトン型チロシンキナーゼ (BTK) 阻害薬】"]
+    BTKi --> Ibrutinib["イブルチニブ<br>（イムブルビカ 420 mg 1日1回）"]
+    BTKi --> Tirabrutinib["チラブルチニブ<br>（ベレキシブル 480 mg 1日1回空腹時）"]
+```
+> [!WARNING]- リツキシマブ単独投与時の「IgM フレア」
+> 高IgM血症患者にリツキシマブを単剤投与すると、投与直後に**一過性のIgM急上昇（IgM flare：最大で約50%に発生）** を来し、致死的な過粘稠度症候群や心不全を誘発する[cite: 725, 726]。
+> 血清IgM $>4000\ \mathrm{mg/dL}$ の症例では、リツキシマブ単剤投与を避け、血漿交換を先行させるか、BTK阻害薬や多剤併用療法を選択する[cite: 726]。
